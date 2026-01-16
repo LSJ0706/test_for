@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+      <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link rel="stylesheet" href="/css/global.css" />
+            <link rel="stylesheet" href="/css/card.css" />
+            <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=xtnt81qt3l"></script>
+            <script
+                  src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.9/kakao.min.js"
+                  integrity="sha384-JpLApTkB8lPskhVMhT+m5Ln8aHlnS0bsIexhaak0jOhAkMYedQoVghPfSpjNi9K1"
+                  crossorigin="anonymous"
+            ></script>
+            <script>
+                  Kakao.init('bdda6d410e48b90bfa41747d0a6c2077');
+            </script>
+      </head>
+      <body>
+            <div class="wrapper">
+                  <header class="main-header">
+                        <div class="main-img-container">
+                              <img id="thumbnail" src="" alt="Main Image" />
+                        </div>
+                        <div class="main-names"><span class="groom-name">Groom</span> <span class="bride-name">Bride</span></div>
+                  </header>
+
+                  <section class="datetime-section">
+                        <div class="date-wrapper">
+                              <div id="wedding-date" class="date">2026. 05. 23</div>
+                              <div id="wedding-time" class="time">SATURDAY AFTERNOON 12:00</div>
+                        </div>
+                  </section>
+
+                  <section class="section contact-section">
+                        <div class="contact-grid">
+                              <div class="contact-column">
+                                    <div class="side-label main-text">신랑</div>
+                                    <div class="contact-item">
+                                          <span class="groom-name">이름</span>
+                                          <div class="contact-call">
+                                                <a href="#" class="groom-tel btn-circle tel">📞</a>
+                                                <a href="#" class="groom-sms btn-circle sms">✉️</a>
+                                          </div>
+                                    </div>
+                                    <div class="parent-list">
+                                          <div class="contact-item">
+                                                <span>부 <span id="groom-father-name">이름</span></span>
+                                                <div class="contact-call">
+                                                      <a id="groom-father-tel" href="#" class="btn-circle tel">📞</a>
+                                                      <a id="groom-father-sms" href="#" class="btn-circle sms">✉️</a>
+                                                </div>
+                                          </div>
+                                          <div class="contact-item">
+                                                <span>모 <span id="groom-mother-name">이름</span></span>
+                                                <div class="contact-call">
+                                                      <a id="groom-mother-tel" href="#" class="btn-circle tel">📞</a>
+                                                      <a id="groom-mother-sms" href="#" class="btn-circle sms">✉️</a>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+
+                              <div class="v-line"></div>
+
+                              <div class="contact-column">
+                                    <div class="side-label main-text">신부</div>
+                                    <div class="contact-item">
+                                          <span class="bride-name">이름</span>
+                                          <div class="contact-call">
+                                                <a href="#" class="bride-tel btn-circle tel">📞</a>
+                                                <a href="#" class="bride-sms btn-circle sms">✉️</a>
+                                          </div>
+                                    </div>
+                                    <div class="parent-list">
+                                          <div class="contact-item">
+                                                <span>부 <span id="bride-father-name">이름</span></span>
+                                                <div class="contact-call">
+                                                      <a id="bride-father-tel" href="#" class="btn-circle tel">📞</a>
+                                                      <a id="bride-father-sms" href="#" class="btn-circle sms">✉️</a>
+                                                </div>
+                                          </div>
+                                          <div class="contact-item">
+                                                <span>모 <span id="bride-mother-name">이름</span></span>
+                                                <div class="contact-call">
+                                                      <a id="bride-mother-tel" href="#" class="btn-circle tel">📞</a>
+                                                      <a id="bride-mother-sms" href="#" class="btn-circle sms">✉️</a>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+                  </section>
+
+                  <section class="section">
+                        <div class="section-label">GALLERY</div>
+                        <div id="image-gallery" class="gallery-container"></div>
+                  </section>
+
+                  <div id="image-modal" class="modal" onclick="closeModal(event)">
+                        <span class="close-btn">&times;</span>
+                        <div class="modal-content-wrapper">
+                              <button class="prev-btn" onclick="changeImage(-1, event)">&#10094;</button>
+                              <img id="modal-img" src="" alt="확대 이미지" onclick="event.stopPropagation()" />
+                              <button class="next-btn" onclick="changeImage(1, event)">&#10095;</button>
+                        </div>
+                        <div id="modal-caption"></div>
+                  </div>
+
+                  <section class="section">
+                        <div class="section-label">LOCATION</div>
+                        <h3 id="location-name" class="location-title">웨딩홀 이름</h3>
+                        <p id="wedding-address" class="address-sub">주소 데이터</p>
+
+                        <div id="naver-map"></div>
+                        <div class="map-links">
+                              <a id="naver-link" href="#" target="_blank">네이버 지도 앱으로 보기</a>
+                        </div>
+                  </section>
+
+                  <section class="section bg-light">
+                        <div class="section-label">GIFT</div>
+                        <p>축복의 마음을 전해주는 곳</p>
+
+                        <div class="gift-container">
+                              <div class="gift-box">
+                                    <button class="toggle-btn" onclick="toggleAccount('groom-acc')">
+                                          신랑측 계좌 확인 <span class="arrow">▼</span>
+                                    </button>
+                                    <div id="groom-acc" class="acc-details hidden"></div>
+                              </div>
+
+                              <div class="gift-box">
+                                    <button class="toggle-btn" onclick="toggleAccount('bride-acc')">
+                                          신부측 계좌 확인 <span class="arrow">▼</span>
+                                    </button>
+                                    <div id="bride-acc" class="acc-details hidden"></div>
+                              </div>
+                        </div>
+                  </section>
+
+                  <section class="section">
+                        <button class="kakao-link" onclick="shareKakao()">
+                              <img
+                                    src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
+                                    width="20"
+                                    alt="카톡공유"
+                              />
+                              카카오톡 공유하기
+                        </button>
+                  </section>
+            </div>
+      </body>
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <script src="/js/utils.js"></script>
+      <script src="/js/client.js"></script>
+</html>

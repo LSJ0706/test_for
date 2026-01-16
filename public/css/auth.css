@@ -1,0 +1,80 @@
+.login-container,
+.sign-up-card {
+      width: 100%;
+      max-width: 400px;
+      padding: 40px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      text-align: center;
+}
+
+.sign-up-card {
+      max-width: 450px;
+}
+
+.logo-text,
+.title-label {
+      display: block;
+      margin-bottom: 30px;
+      color: #ffb6c1;
+      font-size: 24px;
+      font-weight: bold;
+}
+
+.form-group {
+      margin-bottom: 15px;
+      text-align: left;
+}
+
+.form-group span,
+#sign-up-form p {
+      display: block;
+      margin-bottom: 5px;
+      margin-left: 2px;
+      color: #555;
+      font-weight: bold;
+      font-size: 0.9em;
+}
+
+/* 버튼 */
+#btn-sign-in,
+#btn-sign-up {
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px;
+      background: #ffb6c1;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background 0.3s;
+      cursor: pointer;
+}
+
+#btn-sign-in:hover {
+      background: #ff9aa2;
+}
+
+#btn-check-duplicate-email {
+      background: #555;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 5px;
+      width: 100%;
+}
+
+.auth-validation {
+      display: none;
+      padding: 1px 10px;
+      margin-bottom: 15px;
+      background: #fff0f0;
+      border-left: 4px solid #e74c3c;
+      border-radius: 6px;
+      color: #e74c3c;
+      font-size: 0.85em;
+}

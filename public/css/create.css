@@ -1,0 +1,129 @@
+/* 기존 제공 스타일 */
+body {
+      display: block;
+      height: auto;
+      min-height: 100vh;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 900px;
+      background: #f4f7f6;
+      font-family: 'Malgun Gothic', sans-serif;
+      line-height: 1.6;
+}
+
+section {
+      background: white;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+      border-left: 5px solid #ffb6c1;
+      padding-left: 15px;
+      margin-bottom: 20px;
+      color: #444;
+}
+
+.form-group {
+      margin-bottom: 15px;
+}
+
+label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 0.9em;
+      color: #555;
+}
+
+input[type='text'],
+input[type='datetime-local'],
+textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-sizing: border-box;
+}
+
+.address-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 5px;
+}
+
+.btn-search {
+      background: #555;
+      color: white;
+      border: none;
+      padding: 0 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+}
+
+.grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+}
+
+.person-card {
+      background: #fffcfc;
+      border: 1px solid #ffe4e1;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+}
+
+.btn-submit {
+      background: #ffb6c1;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+}
+
+.alive-check {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+      font-size: 0.9em;
+}
+
+.alive-check label {
+      font-weight: normal;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+}
+
+/* 추가된 유틸리티 및 메시지 스타일 */
+.mt-5 {
+      margin-top: 5px;
+}
+
+.auth-validation {
+      display: none; /* 기본적으로 숨김 */
+      background-color: #fff0f0;
+      border: 1px solid #ffcccc;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 15px;
+      text-align: center;
+}
+
+.auth-validation p {
+      color: #e74c3c;
+      margin: 0;
+      font-size: 14px;
+      font-weight: bold;
+}

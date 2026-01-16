@@ -1,0 +1,53 @@
+/* 기본 초기화 및 폰트 설정 */
+body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f4f7f6;
+      font-family: 'Malgun Gothic', 'Pretendard', sans-serif;
+      line-height: 1.6;
+}
+
+/* 공통 입력창 스타일 */
+input[type='email'],
+input[type='password'],
+input[type='text'],
+input[type='datetime-local'],
+textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+      border-color: #ffb6c1;
+      outline: none;
+}
+
+/* 하단 링크 공통 */
+.footer-link {
+      display: block;
+      margin-top: 20px;
+}
+
+.footer-link a {
+      color: #888;
+      font-size: 0.9em;
+      text-decoration: none;
+}
+
+.footer-link a:hover {
+      color: #ffb6c1;
+      text-decoration: underline;
+}
+
+/* 유틸리티 */
+.hidden {
+      display: none;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+      <head>
+            <meta charset="UTF-8" />
+            <title>모바일 청첩장 상세 입력</title>
+            <link rel="stylesheet" href="./css/global.css" />
+            <link rel="stylesheet" href="./css/create.css" />
+      </head>
+      <body>
+            <h1>💌 청첩장 정보 입력</h1>
+
+            <div id="main-validation" class="auth-validation">
+                  <p></p>
+            </div>
+
+            <section id="section-wedding">
+                  <h2>1. 예식장 정보</h2>
+                  <div class="form-group">
+                        <label for="wedding-date">예식 일시</label>
+                        <input type="datetime-local" id="wedding-date" required />
+                  </div>
+
+                  <div class="form-group">
+                        <label for="wedding-address">예식장 주소</label>
+                        <div class="address-group">
+                              <input type="text" id="wedding-address" placeholder="주소 검색을 이용해 주세요" readonly />
+                              <button type="button" class="btn-search" onclick="execDaumPostcode()">주소 검색</button>
+                        </div>
+                        <input type="text" id="wedding-hole" class="mt-5" placeholder="상세 장소 (예: 1층 다이아몬드홀, OO컨벤션)" />
+                  </div>
+
+                  <div class="form-group">
+                        <label for="wedding-content">초대의 글</label>
+                        <textarea id="wedding-content" rows="4" placeholder="인사말을 입력하세요"></textarea>
+                  </div>
+            </section>
+
+            <div class="grid-container">
+                  <section class="side-group" data-side="groom">
+                        <h2>2. 신랑측 정보</h2>
+                        <div class="person-card" data-role="groom">
+                              <h3>신랑 (Groom)</h3>
+                              <input type="text" class="p-name" id="groom-name" placeholder="신랑 성함" />
+                              <input type="text" class="p-phone mt-5" id="groom-phone" placeholder="연락처 (숫자만)" />
+                              <input type="text" class="p-bank mt-5" id="groom-bank" placeholder="은행명" />
+                              <input type="text" class="p-account mt-5" id="groom-account" placeholder="계좌번호 (숫자만)" />
+                        </div>
+                        <div class="person-card" data-role="father">
+                              <h3>아버지 (Father)</h3>
+                              <input type="text" class="p-name" id="groom-father-name" placeholder="성함" />
+                              <input type="text" class="p-phone mt-5" id="groom-father-phone" placeholder="연락처" />
+                              <input type="text" class="p-bank mt-5" id="groom-father-bank" placeholder="은행명" />
+                              <input type="text" class="p-account mt-5" id="groom-father-account" placeholder="계좌번호" />
+                              <div class="alive-check">
+                                    <label><input type="radio" name="g-f-alive" value="1" checked /> 생존</label>
+                                    <label><input type="radio" name="g-f-alive" value="0" /> 작고</label>
+                              </div>
+                        </div>
+                        <div class="person-card" data-role="mother">
+                              <h3>어머니 (Mother)</h3>
+                              <input type="text" class="p-name" id="groom-mother-name" placeholder="성함" />
+                              <input type="text" class="p-phone mt-5" id="groom-mother-phone" placeholder="연락처" />
+                              <input type="text" class="p-bank mt-5" id="groom-mother-bank" placeholder="은행명" />
+                              <input type="text" class="p-account mt-5" id="groom-mother-account" placeholder="계좌번호" />
+                              <div class="alive-check">
+                                    <label><input type="radio" name="g-m-alive" value="1" checked /> 생존</label>
+                                    <label><input type="radio" name="g-m-alive" value="0" /> 작고</label>
+                              </div>
+                        </div>
+                  </section>
+
+                  <section class="side-group" data-side="bride">
+                        <h2>3. 신부측 정보</h2>
+                        <div class="person-card" data-role="bride">
+                              <h3>신부 (Bride)</h3>
+                              <input type="text" class="p-name" id="bride-name" placeholder="신부 성함" />
+                              <input type="text" class="p-phone mt-5" id="bride-phone" placeholder="연락처 (숫자만)" />
+                              <input type="text" class="p-bank mt-5" id="bride-bank" placeholder="은행명" />
+                              <input type="text" class="p-account mt-5" id="bride-account" placeholder="계좌번호 (숫자만)" />
+                        </div>
+                        <div class="person-card" data-role="father">
+                              <h3>아버지 (Father)</h3>
+                              <input type="text" class="p-name" id="bride-father-name" placeholder="성함" />
+                              <input type="text" class="p-phone mt-5" id="bride-father-phone" placeholder="연락처" />
+                              <input type="text" class="p-bank mt-5" id="bride-father-bank" placeholder="은행명" />
+                              <input type="text" class="p-account mt-5" id="bride-father-account" placeholder="계좌번호" />
+                              <div class="alive-check">
+                                    <label><input type="radio" name="b-f-alive" value="1" checked /> 생존</label>
+                                    <label><input type="radio" name="b-f-alive" value="0" /> 작고</label>
+                              </div>
+                        </div>
+                        <div class="person-card" data-role="mother">
+                              <h3>어머니 (Mother)</h3>
+                              <input type="text" class="p-name" id="bride-mother-name" placeholder="성함" />
+                              <input type="text" class="p-phone mt-5" id="bride-mother-phone" placeholder="연락처" />
+                              <input type="text" class="p-bank mt-5" id="bride-mother-bank" placeholder="은행명" />
+                              <input type="text" class="p-account mt-5" id="bride-mother-account" placeholder="계좌번호" />
+                              <div class="alive-check">
+                                    <label><input type="radio" name="b-m-alive" value="1" checked /> 생존</label>
+                                    <label><input type="radio" name="b-m-alive" value="0" /> 작고</label>
+                              </div>
+                        </div>
+                  </section>
+            </div>
+
+            <section id="section-images">
+                  <h2>4. 갤러리 설정</h2>
+                  <div class="form-group">
+                        <label for="input-thumbnail">대표 이미지 (Thumbnail)</label>
+                        <input type="file" id="input-thumbnail" accept="image/*" />
+                  </div>
+                  <div class="form-group">
+                        <label for="input-gallery">갤러리 사진 (최소 12장)</label>
+                        <input type="file" id="input-gallery" accept="image/*" multiple />
+                  </div>
+            </section>
+
+            <button type="button" class="btn-submit" id="btn-create">청첩장 정보 저장하기</button>
+
+            <input id="address-input" type="hidden" />
+
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+            <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID&submodules=geocoder"></script>
+            <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+            <script src="/js/utils.js"></script>
+            <script src="/js/card.js"></script>
+      </body>
+</html>
